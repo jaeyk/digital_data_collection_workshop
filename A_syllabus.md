@@ -1,0 +1,107 @@
+# Research Workshop on Computational Tools for Digital Data Collection
+
+## Description 
+
+The focus of this workshop is on digital data collection using computational tools in the programming language R. Three lecture-style sessions will introduce graduate students to advanced techniques in web-scraping, pdf-scraping, and social media scraping. Three seminar-style courses will provide graduate students with the opportunities to receive feedback on strategies for collecting data. 
+
+The objective of this workshop is practical: graduate students will develop and execute data collections strategies in each of the three thematic modules, with the final deliverable being three complete and clean datasets. As such, we will expect graduate students involved in the workshop to identify resources---e.g., administrative databases, archival documents, social media accounts---that they wish to scrape.
+
+The emphasis of this course is on data collection, rather than data analysis. However, as the goal of data collection is typically analytical, we will assume a familiarity with conventional approaches to statistical inference in the social sciences.
+
+## Logistics
+
+### Co-instructors
+
+Jae Yeon Kim
+
+jaeyeonkim@berkeley.edu
+
+Nicholas Kupiers 
+
+nkuipers@berkeley.edu 
+
+### Time and Location
+
+Date: TBD
+
+Location: Zoom
+
+All course materials will be posted on Github at https://github.com/jaeyk/digital_data_collection_workshop, including class notes, code demonstrations, sample data, and assignments.
+
+### Accessibility
+
+This class is committed to creating an environment in which everyone can participate, regardless of background, discipline, or disability. If you have a particular concern, please come to me as soon as possible so that we can make special arrangements.
+
+### Computer Requirements
+
+The software needed for the course is as follows:
+
+* Access to the UNIX command line (e.g., a Mac laptop, a Bash wrapper on Windows)
+* Git
+* R and RStudio (latest versions)
+* Anaconda and Python 3 (latest versions)
+
+This requires a computer that can handle all this software. Almost any Mac will do the job. Most Windows machines are fine too if they have enough space and memory.
+
+You must have all the software downloaded and installed PRIOR to the first day of class. 
+
+## Curriculum Outline / Schedule
+
+The schedule is subject to change based on the class's rate of progress. 
+
+### Introduction to data wrangling
+
+- September 14, 2020: Principles of data wrangling
+  - Instructor: Kim
+  - Style: Lecture
+  - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to wrangle data
+  - Packages: tidyverse
+  - References: 
+    - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
+    - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
+
+### Techniques in web-scraping
+
+- September 21, 2020: Web-scraping
+  - Instructor: Kuipers
+  - Style: Lecture
+  - Description: introduction to techniques of web-scraping; identifying and exploiting underlying database structures; knowing when to quit
+  - R Packages: rvest, jsonlite, zoo
+  - Chrome plugin: SelectorGadget 
+
+- September 28, 2020: Web-scraping workshop
+  - Instructor: Kuipers + Kim
+  - Style: Seminar
+  - Description: Graduate students provide/receive feedback on web-scraping data collection strategies 
+
+### Techniques in pdf-scraping
+
+- October 5, 2020: PDF-parsing
+  - Lead instructor: Kuipers
+  - Style: Lecture
+  - Description: introduction to techniques of pdf-scraping; where to look for documents; how to know what to pre-process by hand; identifying recurring patterns in text to exploit for data wrangling; parallel processing
+  - R Packages: tesseract, magick, zoo, parallel
+
+- October 12, 2020: No workshop -- Indigenous peoples’ day
+
+- October 19, 2020: PDF-parsing workshop
+  - Instructor: Kuipers + Kim
+  - Style: Seminar
+  - Description: Graduate students provide/receive feedback on PDF-parsing data collection strategies 
+
+### Techniques in Social Media Analysis
+
+- October 26, 2020: Introduction to tweet parsing
+  - Lead Instructor: Kim
+  - Style: Lecture
+  - Description: Introduction to techniques of collecting and parsing social media data with emphasis on twitter
+  - Command-line tool: [twarc](https://github.com/DocNow/twarc) 
+  - R packages: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson)
+  - References: 
+    - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
+    - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
+
+- November 2, 2020: Tweet parsing workshop
+- Instructor: Kuipers + Kim
+- Style: Seminar
+- Description: Graduate students provide/receive feedback on tweet parsing data collection strategies 
