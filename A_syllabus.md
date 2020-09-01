@@ -47,6 +47,8 @@ This requires a computer that can handle all this software. Almost any Mac will 
 
 You must have all the software downloaded and installed PRIOR to the first day of class. 
 
+See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) for more information on installation. 
+
 ## Curriculum Outline / Schedule
 
 The schedule is subject to change based on the class's rate of progress. 
