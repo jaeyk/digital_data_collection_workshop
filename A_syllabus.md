@@ -14,7 +14,7 @@ The emphasis of this course is on data collection, rather than data analysis. Ho
 
 ### Co-instructors
 
-Jae Yeon Kim
+[Jae Yeon Kim](https://jaeyk.github.io/)
 
 jaeyeonkim@berkeley.edu
 
