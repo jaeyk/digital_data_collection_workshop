@@ -71,7 +71,7 @@ The schedule is subject to change based on the class's rate of progress.
   - R Packages: rvest, jsonlite, zoo
   - Chrome plugin: SelectorGadget 
   - References:
-    - Terman, 3I: Web Scraping and Data Management in R (GitHub[https://github.com/rochelleterman/ESS-webscraping])
+    - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
 
 - September 28, 2020: Web-scraping workshop
   - Instructor: Kuipers + Kim
