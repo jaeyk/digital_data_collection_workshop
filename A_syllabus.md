@@ -59,7 +59,7 @@ The schedule is subject to change based on the class's rate of progress.
   - Instructor: Kim
   - Style: Lecture
   - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to wrangle data
-  - Packages: tidyverse
+  - Packages: [tidyverse](https://www.tidyverse.org/)
   - References: 
     - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
     - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
