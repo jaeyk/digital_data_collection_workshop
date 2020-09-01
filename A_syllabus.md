@@ -100,7 +100,7 @@ The schedule is subject to change based on the class's rate of progress.
 - October 26, 2020: Introduction to tweet parsing
   - Lead Instructor: Kim
   - Style: Lecture
-  - Description: Introduction to techniques of collecting and parsing social media data with emphasis on twitter
+  - Description: Introduction to techniques of collecting and parsing social media data with emphasis on Twitter
   - Command-line tool: [twarc](https://github.com/DocNow/twarc) 
   - R packages: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson)
   - References: 
