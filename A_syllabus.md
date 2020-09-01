@@ -68,6 +68,8 @@ The schedule is subject to change based on the class's rate of progress.
   - Description: introduction to techniques of web-scraping; identifying and exploiting underlying database structures; knowing when to quit
   - R Packages: rvest, jsonlite, zoo
   - Chrome plugin: SelectorGadget 
+  - References:
+    - Terman, 3I: Web Scraping and Data Management in R (GitHub[https://github.com/rochelleterman/ESS-webscraping])
 
 - September 28, 2020: Web-scraping workshop
   - Instructor: Kuipers + Kim
