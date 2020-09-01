@@ -95,7 +95,7 @@ The schedule is subject to change based on the class's rate of progress.
   - Style: Seminar
   - Description: Graduate students provide/receive feedback on PDF-parsing data collection strategies 
 
-### Techniques in Social Media Analysis
+### Techniques in social media scraping 
 
 - October 26, 2020: Introduction to tweet parsing
   - Lead Instructor: Kim
