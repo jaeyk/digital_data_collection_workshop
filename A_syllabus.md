@@ -1,5 +1,7 @@
 # Research Workshop on Computational Tools for Digital Data Collection
 
+If you have comments, questions, or suggestions, then [create an issue](https://github.com/jaeyk/digital_data_collection_workshop/issues). 
+
 ## Description 
 
 The focus of this workshop is on digital data collection using computational tools in the programming language R. Three lecture-style sessions will introduce graduate students to advanced techniques in web-scraping, pdf-scraping, and social media scraping. Three seminar-style courses will provide graduate students with the opportunities to receive feedback on strategies for collecting data. 
