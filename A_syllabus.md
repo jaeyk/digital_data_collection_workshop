@@ -108,6 +108,6 @@ The schedule is subject to change based on the class's rate of progress.
     - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
 - November 2, 2020: Tweet parsing workshop
-- Instructor: Kuipers + Kim
-- Style: Seminar
-- Description: Graduate students provide/receive feedback on tweet parsing data collection strategies 
+  - Instructor: Kuipers + Kim
+  - Style: Seminar
+  - Description: Graduate students provide/receive feedback on tweet parsing data collection strategies 
