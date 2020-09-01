@@ -53,9 +53,9 @@ See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) f
 
 The schedule is subject to change based on the class's rate of progress. 
 
-### Introduction to data collection and wrangling
+### Techniqeus in automating data collection workflow 
 
-- September 14, 2020: Automating and scaling up data collection and wrangling 
+- September 14, 2020: Automating data collection workflow 
   - Instructor: Kim
   - Style: Lecture
   - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to collect and wrangle data
