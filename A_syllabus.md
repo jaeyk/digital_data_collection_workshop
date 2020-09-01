@@ -58,7 +58,7 @@ The schedule is subject to change based on the class's rate of progress.
 - September 14, 2020: Automating and scaling up data collection and wrangling 
   - Instructor: Kim
   - Style: Lecture
-  - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to wrangle data
+  - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to collect and wrangle data
   - Packages: [dplyr](https://dplyr.tidyverse.org/), [purrr](https://purrr.tidyverse.org/)
   - References: 
     - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
