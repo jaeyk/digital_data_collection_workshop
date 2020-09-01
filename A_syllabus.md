@@ -53,13 +53,13 @@ See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) f
 
 The schedule is subject to change based on the class's rate of progress. 
 
-### Introduction to data wrangling
+### Introduction to data collection and wrangling
 
-- September 14, 2020: Principles of data wrangling
+- September 14, 2020: Automating and scaling up data collection and wrangling 
   - Instructor: Kim
   - Style: Lecture
   - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to wrangle data
-  - Packages: [tidyverse](https://www.tidyverse.org/)
+  - Packages: [dplyr](https://dplyr.tidyverse.org/), [purrr](https://purrr.tidyverse.org/)
   - References: 
     - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
     - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
