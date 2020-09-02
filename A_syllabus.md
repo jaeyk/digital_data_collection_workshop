@@ -87,7 +87,9 @@ The schedule is subject to change based on the class's rate of progress.
   - Style: Lecture
   - Description: introduction to techniques of pdf-scraping; where to look for documents; how to know what to pre-process by hand; identifying recurring patterns in text to exploit for data wrangling; parallel processing
   - R Packages: tesseract, magick, zoo, parallel
-
+  - References:
+    - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/) 
+  
 - October 12, 2020: No workshop -- Indigenous peoples’ day
 
 - October 19, 2020: PDF-parsing workshop
