@@ -73,7 +73,7 @@ The schedule is subject to change based on the class's rate of progress.
   - Instructor: Kuipers
   - Style: Lecture
   - Description: introduction to techniques of web-scraping; identifying and exploiting underlying database structures; knowing when to quit
-  - R Packages: rvest, jsonlite, zoo
+  - R Packages: rvest, jsonlite, zoo, xml, [ralger](https://github.com/feddelegrand7/ralger)
   - Chrome plugin: SelectorGadget 
   - References:
     - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
