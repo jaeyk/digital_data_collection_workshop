@@ -34,6 +34,9 @@ All course materials will be posted on Github at https://github.com/jaeyk/digita
 
 This class is committed to creating an environment in which everyone can participate, regardless of background, discipline, or disability. If you have a particular concern, please come to me as soon as possible so that we can make special arrangements.
 
+### Books and Other Resources
+There are no official textbooks for this class. Please see [the references](https://github.com/jaeyk/digital_data_collection_workshop/blob/master/B_references.md) (will be updated throughout the semester) for additional references and [the style guides](https://github.com/jaeyk/PS239T/blob/master/style_guides.md) for efficient programming and project management. 
+
 ### Computer Requirements
 
 The software needed for the course is as follows:
