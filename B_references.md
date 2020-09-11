@@ -11,3 +11,7 @@
 ## Books 
 - [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham
 - [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by [Bruno Rodrigues](https://www.brodrigues.co/)
+
+## Tools for Automating Workflow 
+- [metaflow](https://docs.metaflow.org/v/r/introduction/what-is-metaflow)
+- [drake](https://github.com/ropensci/drake)
