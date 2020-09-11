@@ -1,7 +1,7 @@
 # Research Workshop on Computational Tools for Digital Data Collection
 
 * **Instructor(s)**: Jae Yeon Kim and Nick Kuipers
-* **Date**: Mondays, 2-4pm
+* **Date**: Wednesday, 2-4pm
 * **Location**: Zoom
 
 **Description**
