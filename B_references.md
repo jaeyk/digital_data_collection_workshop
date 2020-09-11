@@ -9,4 +9,5 @@
 - [PS239T: Introduction to Computational Tools and Techniques](https://github.com/jaeyk/PS239T) by Jae Yeon Kim
 
 ## Books 
-- [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by Bruno Rodrigues
+- [Advanced R]http://adv-r.had.co.nz/) by Hadley Wickham
+- [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by [Bruno Rodrigues](https://www.brodrigues.co/)
