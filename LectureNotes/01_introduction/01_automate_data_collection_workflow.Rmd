@@ -1,0 +1,30 @@
+---
+title: "Automating digital data collection"
+author: "Jae Yeon Kim"
+output:
+  html_document:
+    df_print: paged
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+# Objectives 
+
+1. Getting the big picture: turning semi-structured data into structured data 
+
+2. Learning how to automate data collecting and wrangling process
+
+# Semi-structured data 
+
+> Semi-structured data is a form of structured data that does not obey the tabular structure of data models associated with relational databases or other forms of data tables, but nonetheless contains tags or other markers to separate semantic elements and enforce hierarchies of records and fields within the data. Therefore, it is also known as self-describing structure. - [Wikipedia](https://en.wikipedia.org/wiki/Semi-structured_data#:~:text=Semi%2Dstructured%20data%20is%20a,and%20fields%20within%20the%20data.)
+
+- Examples: HTML files (e.g., websites), JSON files (e.g., tweets), some PDF files 
+
+- Why should we care semi-structured data? 
+    - Because this is what the data frontier looks like: # of unstructured data > # of semi-structured data > # of structured data 
+    - There are easy and fast ways to turn semi-structured data into structured data using R, Python, and command-line tools. 
+    
+![]()
