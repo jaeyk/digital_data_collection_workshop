@@ -13,18 +13,186 @@ output:
 
 # Objectives 
 
-1. Getting the big picture: turning semi-structured data into structured data 
+1. Getting the big picture: turning semi-structured data (input) into structured data (output) 
 
 2. Learning how to automate data collecting and wrangling process
 
-# Semi-structured data 
+# Semi-structured data (input)
 
 > Semi-structured data is a form of structured data that does not obey the tabular structure of data models associated with relational databases or other forms of data tables, but nonetheless contains tags or other markers to separate semantic elements and enforce hierarchies of records and fields within the data. Therefore, it is also known as self-describing structure. - [Wikipedia](https://en.wikipedia.org/wiki/Semi-structured_data#:~:text=Semi%2Dstructured%20data%20is%20a,and%20fields%20within%20the%20data.)
 
-- Examples: HTML files (e.g., websites), JSON files (e.g., tweets), some PDF files 
+- Examples: `HTML (Hypertext Markup Language)` files (e.g., websites), `JSON (JavaScript Object Notation)` files (e.g., tweets), some `PDF (Portable Document Format)` files 
 
 - Why should we care semi-structured data? 
     - Because this is what the data frontier looks like: # of unstructured data > # of semi-structured data > # of structured data 
-    - There are easy and fast ways to turn semi-structured data into structured data using R, Python, and command-line tools. 
+    - There are easy and fast ways to turn semi-structured data into structured data (ideally in a tidy format) using R, Python, and command-line tools. See my own examples ([tidyethnicnews](https://github.com/jaeyk/tidyethnicnews) and [tidytweetjson](https://github.com/jaeyk/tidytweetjson)). 
     
-![]()
+![Figure 1. This is how the README file of this Git repository looks in raw HTML. Semi-structured data are everywhere.](https://github.com/jaeyk/digital_data_collection_workshop/raw/master/misc/html_example.png)
+
+**Challenge 1** 
+1. What's the data type (structured, semi-structured, and unstructured) of the document appeared in the left panel in Figure 1? 
+2. What's the data type (structured, semi-structured, and unstructured) of the document appeared in the right panel in Figure 1? 
+
+
+# Tidyverse dataframes (output)
+
+> "Tidy data sets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table." - Hadley Wickham
+
+1. Variables -> **Columns**
+2. Observations -> **Rows**
+3. Values -> **Cells**
+
+![Figure 2. Tidy Data Example (Source: R for Data Science)](https://garrettgman.github.io/images/tidy-1.png)
+
+Once dataframes are tidy, it's easy to transform, visualize, model, and program them using tidyverse packages (a whole workflow).
+
+![Figure 3. Tidyverse: an opinionated collection of R packages](https://miro.medium.com/max/960/0*mlPyX0NE0WQwEzpS.png)
+
+- Nevertheless, don't be **religious**.
+
+> In summary, tidy data is a useful conceptual idea and is often the right way to go for general, small data sets, but may not be appropriate for all problems. - Jeff Leek
+
+For instance, in many data science applications, linear algebra-based computations are essential (e.g., [Principal Component Analysis](https://www.math.upenn.edu/~kazdan/312S13/JJ/PCA-JJ.pdf)). These computations are optimized to work on matrices, not tidy data frames (for more information, read [Jeff Leek's blog post](https://simplystatistics.org/2016/02/17/non-tidy-data/)).
+
+# Workflow
+  
+1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
+
+```{r}
+# Install packages 
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(xml2, rvest, tidyverse)
+
+# Citation information of Behind the Mule (1994) written by Michael Dawson 
+document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
+```
+
+2. Define target elements in the file and extract them 
+
+```{r}
+
+document %>%
+  rvest::html_nodes("div.gs_ab_mdw")
+
+doc <- document %>%
+  rvest::html_nodes("div.gs_ab_mdw") %>%
+  rvest::html_text()
+
+readr::parse_number(doc[2])
+
+```
+3. Create a list of files to parse
+
+```{r}
+
+# Range 
+pub_year <- 1994 
+range <- (lubridate::year(Sys.Date()) - pub_year)
+
+# Placeholders 
+url_list <- list()
+
+# For loop 
+for (i in 1:3){
+  
+  base <- "https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc="
+  
+  start_year <- paste0("as_ylo=", pub_year - 1 + i)
+  
+  end_year <- paste0("as_yhi=", pub_year + i)
+  
+  url_list[i] <- paste0(base, "&", start_year, "&", end_year)
+  
+  message(paste("citation information between", pub_year - 1 + i, pub_year + i))
+  
+}
+
+# Turn the list into a dataframe 
+urls <- url_list %>% 
+  map_df(tibble::enframe) %>% # Convert vectors to data frames  
+  select(value) # Select values 
+
+urls
+
+```
+
+4. Write a function to iterate
+
+```{r}
+
+find_hit <- function(url){
+  
+  # Read html data 
+  doc <- read_html(curl::curl(url, handle = curl::new_handle("useragent" = "Mozilla/5.0"))) %>%
+    html_nodes("div.gs_ab_mdw") %>%
+    html_text()
+  
+  # Parse the text 
+  text <- doc[2]
+  
+  # Output 
+  readr::parse_number(text)
+  
+}
+
+```
+
+5. Automate iterations using `purrr::map()`
+
+```{r}
+
+hits <- urls %>%
+  mutate(Hits = map(value, find_hit)) 
+
+hits$Hits %>% 
+  map_df(tibble::enframe) %>% # Convert vectors to data frames  
+  select(value) %>%
+  rename("Hits" = "value")
+
+```
+![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
+
+6. Scale up automation using `purrr::reduce()`
+
+- The following example comes from my `[tidytweetjson](https://github.com/jaeyk/tidytweetjson/blob/master/R/jsonl_to_df_all.R)` package 
+
+```{r}
+
+jsonl_to_df_all <- function(dir_path){
+
+# Create a list of the splitted JSON files
+
+      filename <- list.files(dir_path,
+                pattern = '^x',
+                full.names = TRUE)
+
+      df <- filename %>%
+
+      # Apply jsonl_to_df function to items on the list
+      future_map(~jsonl_to_df(.)) %>%
+
+      # Full join the list of dataframes
+      reduce(full_join,
+             by = c("id",
+                    "location",
+                    "country_code",
+                    "created_at",
+                    "full_text",
+                    "retweet_count",
+                    "favorite_count",
+                    "user.followers_count",
+                    "user.friends_count"))
+
+# Output
+df
+
+}
+```
+
+# References 
+
+- Webscraping: [Web Scraping and Data Management in R](https://github.com/rochelleterman/ESS-webscraping) by Rochelle Terman
+
+- PDF parsing: [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/) by Tom Mock
+
+- Functional programming: [Functional programming with {purrr}](https://b-rodrigues.github.io/modern_R/defining-your-own-functions.html#functional-programming-with-purrr) by [Bruno Rodrigues](https://www.brodrigues.co/)
