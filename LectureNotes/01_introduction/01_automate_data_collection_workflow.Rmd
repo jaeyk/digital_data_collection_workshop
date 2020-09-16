@@ -67,7 +67,7 @@ pacman::p_load(xml2, rvest, tidyverse)
 document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
 ```
 
-2. Define target elements in the file and extract them 
+2. Define target elements in the single file and extract them 
 
 ```{r}
 
@@ -81,7 +81,7 @@ doc <- document %>%
 readr::parse_number(doc[2])
 
 ```
-3. Create a list of files to parse
+3. Create a list of files (in this case URLs) to parse
 
 ```{r}
 
@@ -152,7 +152,11 @@ hits$Hits %>%
 ```
 ![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
 
+- If you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
+
 6. Scale up automation using `purrr::reduce()`
+
+- For instance, you can scrape citation information from not one book but many books (a list of the lists).
 
 - The following example comes from my `[tidytweetjson](https://github.com/jaeyk/tidytweetjson/blob/master/R/jsonl_to_df_all.R)` package 
 
