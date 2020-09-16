@@ -4,11 +4,7 @@ If you have comments, questions, or suggestions, then [create an issue](https://
 
 ## Description
 
-<<<<<<< HEAD
-The focus of this workshop is on digital data collection using R (most cases), Python, and UNIX command-line tools. Three lecture-style sessions will introduce graduate students to advanced techniques in web-scraping, pdf-scraping, and social media scraping. Three seminar-style courses will provide graduate students with the opportunity to receive feedback on strategies for collecting data.
-=======
 The focus of this workshop is on digital data collection using R (most cases), Python, and UNIX command-line tools. Three lecture-style sessions will introduce graduate students to advanced techniques in web-scraping, pdf-scraping, and social media scraping. Three seminar-style courses will provide graduate students with the opportunity to receive feedback on strategies for collecting data. 
->>>>>>> 732b241e9b1de69594321f52601bafa7fa963097
 
 The objective of this workshop is practical: graduate students will develop and execute data collections strategies in each of the three thematic modules, with the final deliverable being three complete and clean datasets. As such, we will expect graduate students involved in the workshop to identify resources---e.g., administrative databases, archival documents, social media accounts---that they wish to scrape.
 
@@ -22,11 +18,7 @@ The emphasis of this course is on data collection, rather than data analysis. Ho
 
 jaeyeonkim@berkeley.edu
 
-<<<<<<< HEAD
-Nicholas Kuipers
-=======
 Nicholas Kuipers 
->>>>>>> 732b241e9b1de69594321f52601bafa7fa963097
 
 nkuipers@berkeley.edu
 
@@ -64,11 +56,7 @@ See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) f
 
 The schedule is subject to change based on the class's rate of progress.
 
-<<<<<<< HEAD
-### Techniqeus in automating data collection workflow
-=======
-### Techniques in automating data collection workflow 
->>>>>>> 732b241e9b1de69594321f52601bafa7fa963097
+### Techniques in automating data collection workflow [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaeyk/digital_data_collection_workshop/master?urlpath=rstudio)
 
 - September 16, 2020: Automating data collection workflow
   - Instructor: Kim
