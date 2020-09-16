@@ -78,6 +78,8 @@ pacman::p_load(xml2,
 
 # Citation information of Behind the Mule (1994) written by Michael Dawson 
 document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
+
+document
 ```
 
 ## 2. Define target elements in the single file and extract them 
@@ -116,7 +118,7 @@ create_url <- function(i){
     message(paste("citation information between", pub_year - 1 + i, pub_year + i))
     
     paste0(base, "&", start_year, "&", end_year)
-    
+  
 }
 
 url_list <- map(1:3, create_url)
@@ -138,6 +140,7 @@ url_list <- map(1:3, create_url)
 - Compare the following three examples. 
 
 ```{r}
+
 df <- tibble("a" = -99,
              "b" = -99,
              "c" = -99,
@@ -172,7 +175,7 @@ df <- map_df(df, fix_missing)
 # Built-in data 
 data("airquality")
 
-# 0.014 sec elapsed
+# 0.021 sec elapsed
 tic()
 out1 <- vector("double", ncol(airquality))
 
@@ -183,13 +186,12 @@ for (i in seq_along(airquality)){
 }
 toc()
 
-# 0.005 sec elapsed 
+# 0.006 sec elapsed 
 tic()
 out1 <- airquality %>% map_dbl(mean, na.rm = TRUE)
 toc()
 
 ```
-
 - In short, map() is more readable, faster, and easily extensive with other data science tasks using %>%. 
 
 - Also, it's easy to include make your function run slowly (to reduce the burden on a server) using `purrr`. 
@@ -215,12 +217,12 @@ toc()
 
 ```{r}
 
-# 4.672 sec elapsed 
+# 6.172 sec elapsed 
 tic()
 mean100 <- map(1:1000000, mean)
 toc()
 
-# 3.666 sec elapsed 
+# 5.047 sec elapsed 
 
 plan(multisession, workers = 4)
 
@@ -260,7 +262,6 @@ find_hit <- function(url){
 
 ```
 
-
 > It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically. - Hadley Wickam 
 
 - When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
@@ -277,12 +278,11 @@ hits
 
 ```
 ![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
-
 - Note that if you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
 
 ## 6. If you need to parse a really large file ... 
 
-- When a target file is too large (>10GB) and you need to do complex wrangling, you may want to take a divide, conquer, and reduce strategy as outlined below. (Social media data stored in JSON are usually quite large.)
+- When a target file is too large (>10GB) and you need to do complex wrangling, you may want to take a divide-conquer-reduce strategy as outlined below. (Social media data stored in JSON are usually quite large.)
 
 - Step 1 (divide): Split the large target file. (You can easily do this in command-line using `split` command. We're not learning this today ... )
 
@@ -311,16 +311,19 @@ toy_list <- map(1:4, ~ sample(x = 1:10,
 
 # Let's find common elements across these four lists 
 out <- toy_list[[1]]
+
 out <- intersect(out, toy_list[[2]])
+
 out <- intersect(out, toy_list[[3]])
+
 out <- intersect(out, toy_list[[4]])
+
 out 
 
 # Using reduce 
 reduce(toy_list, intersect)
 
 ```
-
 - The following real-world example comes from my [`tidytweetjson`](https://github.com/jaeyk/tidytweetjson/blob/master/R/jsonl_to_df_all.R) package.
 
 ```{r}
