@@ -56,11 +56,14 @@ See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) f
 
 The schedule is subject to change based on the class's rate of progress.
 
-### Techniques in automating data collection workflow [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaeyk/digital_data_collection_workshop/master?urlpath=rstudio) [[Notebook](file:///home/jae/digital_data_collection_workshop/LectureNotes/01_introduction/01_automate_data_collection_workflow.html)]
+### Techniques in automating data collection workflow 
 
 - September 16, 2020: Automating data collection workflow
   - Instructor: Kim
   - Style: Lecture
+  - Lecture notes:
+    - Interactive version: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaeyk/digital_data_collection_workshop/master?urlpath=rstudio) 
+    - Non-interactive version: [Notebook](file:///home/jae/digital_data_collection_workshop/LectureNotes/01_introduction/01_automate_data_collection_workflow.html)
   - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to collect and wrangle data
   - R Packages: [dplyr](https://dplyr.tidyverse.org/), [purrr](https://purrr.tidyverse.org/)
   - References:
