@@ -56,7 +56,7 @@ For instance, in many data science applications, linear algebra-based computatio
 
 # Workflow
   
-1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
+## 1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
 
 - Google Scholar platform is notoriously difficult to scrape (for more information, please read [this *nature* column](https://www.nature.com/articles/d41586-018-04190-5) on scraping data from Google Scholar). 
 
@@ -80,7 +80,7 @@ pacman::p_load(xml2,
 document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
 ```
 
-2. Define target elements in the single file and extract them 
+## 2. Define target elements in the single file and extract them 
 
 - [`readr`](https://readr.tidyverse.org/) package providers `parse_` functions that are useful for vector parsing. 
 - [`stringr`](https://stringr.tidyverse.org/) package for string manipulations (e.g., using regular expressions in a tidy way). Quite useful for parsing PDF files (see [this example](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)).
@@ -99,7 +99,7 @@ doc <- document %>%
 readr::parse_number(doc[2])
 
 ```
-3. Create a list of files (in this case URLs) to parse
+## 3. Create a list of files (in this case URLs) to parse
 
 ```{r}
 
@@ -230,7 +230,7 @@ toc()
 
 ```
 
-4. Write a parsing function 
+## 4. Write a parsing function 
 
 ```{r}
 
@@ -265,7 +265,7 @@ find_hit <- function(url){
 
 - When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
 
-5. Automate parsing process
+## 5. Automate parsing process
 
 ```{r}
 
@@ -280,11 +280,17 @@ hits
 
 - Note that if you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
 
-6. If you want to reduce the listed items you scraped ... 
+## 6. If you need to parse a really large file ... 
 
-- Automatically scrapped thousands newspaper articles, parsed them, and now you want to put all of these elements on the list into a single dataframe. 
+- When a target file is too large (>10GB) and you need to do complex wrangling, you may want to take a divide, conquer, and reduce strategy as outlined below. (Social media data stored in JSON are usually quite large.)
 
-- The key is using `reduce()` function.
+- Step 1 (divide): Split the large target file. (You can easily do this in command-line using `split` command. We're not learning this today ... )
+
+- Step 2 (conquer): Wrangle each splitted file. (We already learned how to do this.)
+
+- Step 3 (reduce): Combine them together. (Something new. This is what we're learning in this subsection of the workshop.)
+
+- The key is using `purrr::reduce()` function.
 
 ![Figure 5. How reduce() works.](https://d33wubrfki0l68.cloudfront.net/9c239e1227c69b7a2c9c2df234c21f3e1c74dd57/eec0e/diagrams/functionals/reduce.png)
 
