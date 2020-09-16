@@ -56,7 +56,7 @@ See [this guideline](https://github.com/jaeyk/PS239T/blob/master/B_Install.md) f
 
 The schedule is subject to change based on the class's rate of progress.
 
-### Techniques in automating data collection workflow 
+### Techniques in automating data collection workflow [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaeyk/digital_data_collection_workshop/master?urlpath=rstudio)
 
 - September 16, 2020: Automating data collection workflow
   - Instructor: Kim
