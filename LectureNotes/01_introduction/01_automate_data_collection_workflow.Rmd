@@ -57,9 +57,14 @@ For instance, in many data science applications, linear algebra-based computatio
 # Workflow
   
 1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
+
 - Google Scholar platform is notoriously difficult to scrape (for more information, please read [this *nature* column](https://www.nature.com/articles/d41586-018-04190-5) on scraping data from Google Scholar). 
 
-- Any attempt to scrape content from Google's service may cause you to be suspended from using it. So, I wrote this tutorial only for the educational purpose, please don't do it.
+- Any attempt to scrape content from Google's service may cause you to be suspended from using it. For more information, see the [Google Scholar robots.txt.](https://scholar.google.com/robots.txt) So, don't try to scrape it and be cautious with Google's service terms. 
+
+> Don’t misuse our Services. For example, don’t interfere with our Services or try to access them using a method other than the interface and the instructions that we provide. - Google Terms of Service
+
+- I wrote this tutorial only for the educational purpose.
 
 ```{r}
 # Install packages 
@@ -123,9 +128,12 @@ url_list <- map(1:3, create_url)
 - Why `purrr:map()` is awesome. 
 
 ![Figure 5. How map() works.](https://d33wubrfki0l68.cloudfront.net/f0494d020aa517ae7b1011cea4c4a9f21702df8b/2577b/diagrams/functionals/map.png)
-  - Input: Takes a vector and a function 
-  - Computation: Calls the function once for each element of the vector 
-  - Output: Returns in a list or whatever data format you prefer
+
+    - Input: Takes a vector and a function 
+    
+    - Computation: Calls the function once for each element of the vector 
+  
+    - Output: Returns in a list or whatever data format you prefer
   
 - Compare the following three examples. 
 
@@ -203,7 +211,7 @@ slowly(
 toc()
 
 ```
-- If you want to make your function run faster, it's also easy to do that. For more information, please visit the `[furrr](https://davisvaughan.github.io/furrr/)` package website.
+- If you want to make your function run faster, it's also easy to do that. For more information, please visit the [`furrr`](https://davisvaughan.github.io/furrr/) package website.
 
 ```{r}
 
@@ -214,7 +222,7 @@ toc()
 
 # 3.666 sec elapsed 
 
-plan(multisession, workers = 2)
+plan(multisession, workers = 4)
 
 tic()
 mena100 <- future_map(1:1000000, mean)
@@ -280,9 +288,11 @@ hits
 
 ![Figure 5. How reduce() works.](https://d33wubrfki0l68.cloudfront.net/9c239e1227c69b7a2c9c2df234c21f3e1c74dd57/eec0e/diagrams/functionals/reduce.png)
 
-  - Input: Takes a vector of length n
-  - Computation: Calls a function with a pair of values at a time
-  - Output: Returns a vector of length 1
+    - Input: Takes a vector of length n
+  
+    - Computation: Calls a function with a pair of values at a time
+  
+    - Output: Returns a vector of length 1
   
 - The following toy example comes from Wickam's [Advanced R](https://adv-r.hadley.nz/functionals.html#reduce).
 
