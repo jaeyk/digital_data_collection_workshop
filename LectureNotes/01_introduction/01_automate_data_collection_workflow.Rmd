@@ -58,16 +58,27 @@ For instance, in many data science applications, linear algebra-based computatio
   
 1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
 
+- Google Scholar platform is notoriously difficult to scrape (for more information, please read [this *nature* column](https://www.nature.com/articles/d41586-018-04190-5) on scraping data from Google Scholar). 
+
 ```{r}
 # Install packages 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(xml2, rvest, tidyverse)
+pacman::p_load(xml2, 
+               rvest, 
+               tidyverse, 
+               testthat,
+               tictoc)
 
 # Citation information of Behind the Mule (1994) written by Michael Dawson 
 document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
 ```
 
 2. Define target elements in the single file and extract them 
+
+- [`readr`](https://readr.tidyverse.org/) package providers `parse_` functions that are useful for vector parsing. 
+- [`stringr`](https://stringr.tidyverse.org/) package for string manipulations (e.g., using regular expressions in a tidy way). Quite useful for parsing PDF files (see [this example](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)).
+- [`rvest`](https://github.com/tidyverse/rvest) package for parsing HTML (R equivalent to `beautiful soup` in Python)
+- [`tidyjson`](https://github.com/sailthru/tidyjson) package for parsing JSON data
 
 ```{r}
 
@@ -85,31 +96,30 @@ readr::parse_number(doc[2])
 
 ```{r}
 
-# Range 
-pub_year <- 1994 
-range <- (lubridate::year(Sys.Date()) - pub_year)
+create_url <- function(i){
 
-# Placeholders 
-url_list <- list()
+    pub_year <- 1994 
+    
+    base <- "https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc="
 
-# For loop 
-for (i in 1:3){
-  
-  base <- "https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc="
-  
-  start_year <- paste0("as_ylo=", pub_year - 1 + i)
-  
-  end_year <- paste0("as_yhi=", pub_year + i)
-  
-  url_list[i] <- paste0(base, "&", start_year, "&", end_year)
-  
-  message(paste("citation information between", pub_year - 1 + i, pub_year + i))
-  
+    start_year <- paste0("as_ylo=", pub_year - 1 + i)
+    
+    end_year <- paste0("as_yhi=", pub_year + i)
+    
+    message(paste("citation information between", pub_year - 1 + i, pub_year + i))
+    
+    paste0(base, "&", start_year, "&", end_year)
+    
 }
+
+url_list <- map(1:3, create_url)
+
+# two arguments - map2() 
+# 3 and more than 3 arguments - pmap()
 
 ```
 
-4. Write a function to iterate
+4. Write a parsing function 
 
 ```{r}
 
@@ -120,53 +130,158 @@ find_hit <- function(url){
     html_nodes("div.gs_ab_mdw") %>%
     html_text()
   
-  # Parse the text 
+  # Extract the text  
   text <- doc[2]
   
-  # Output 
-  readr::parse_number(text)
+  # Parse the text 
+  out <- readr::parse_number(text)
+  
+  # Unit testing 
+  test_that("The class of the output should be numeric", {
+  testthat::expect_equal(class(out), "numeric")
+  })
+  
+  out
   
 }
 
+# testhat::expect_equal(class(2), "character")
+
 ```
 
-5. Automate iterations using `purrr::map()`
+
+> It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically. - Hadley Wickam 
+
+- When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
+
+5. Automate parsing process
 
 ```{r}
 
 hits <- map_dbl(url_list, find_hit)
 
-tibble("year" = pub_year:(len(hits)-1),
-       "hits" = hits)
+hits
 
 ```
 ![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
 
-- If you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
+- Note that if you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
 
-6. Scale up automation using `purrr::reduce()`
+- Let me reinforce the idea why `purrr:map()` is awesome. 
 
-- For instance, you can scrape citation information from not one book but many books (a list of the lists).
+![Figure 5. How map() works.](https://d33wubrfki0l68.cloudfront.net/f0494d020aa517ae7b1011cea4c4a9f21702df8b/2577b/diagrams/functionals/map.png)
+  - Input: Takes a vector and a function 
+  - Computation: Calls the function once for each element of the vector 
+  - Output: Returns in a list or whatever data format you prefer 
+  
+- Compare the following three examples. 
 
-- The following example comes from my `[tidytweetjson](https://github.com/jaeyk/tidytweetjson/blob/master/R/jsonl_to_df_all.R)` package 
+```{r}
+df <- tibble("a" = -99,
+             "b" = -99,
+             "c" = -99,
+             "d" = -99)
+             
+# Bad
+df$a[df$a == -99] <- NA
+df$b[df$b == -99] <- NA
+df$c[df$c == -99] <- NA
+df$d[df$d == -99] <- NA
+
+# Slightly better
+fix_missing <- function(x) {
+  x[x == -99] <- NA
+  x
+}
+
+df$a <- fix_missing(df$a)
+df$b <- fix_missing(df$b)
+df$c <- fix_missing(df$c)
+df$d <- fix_missing(df$d)
+
+# Good 
+df <- map_df(df, fix_missing)
+
+```
+
+- Okay then how about for loop?
 
 ```{r}
 
+# Built-in data 
+data("airquality")
+
+# 0.014 sec elapsed
+tic()
+out1 <- vector("double", ncol(airquality))
+
+for (i in seq_along(airquality)){
+  
+  out1[[i]] <- mean(airquality[[i]], na.rm = TRUE)
+  
+}
+toc()
+
+# 0.005 sec elapsed 
+tic()
+out1 <- airquality %>% map_dbl(mean, na.rm = TRUE)
+toc()
+
+```
+
+6. In case, if you want to reduce the listed items you scraped ... 
+
+- Automatically scrapped thousands newspaper articles, parsed them, and now you want to put all of these elements on the list into a single dataframe. 
+
+- The key is using `reduce()` function.
+
+![Figure 5. How reduce() works.](https://d33wubrfki0l68.cloudfront.net/9c239e1227c69b7a2c9c2df234c21f3e1c74dd57/eec0e/diagrams/functionals/reduce.png)
+
+  - Input: Takes a vector of length n
+  - Computation: Calls a function with a pair of values at a time
+  - Output: Returns a vector of length 1
+  
+- The following toy example comes from Wickam's [Advanced R](https://adv-r.hadley.nz/functionals.html#reduce).
+
+```{r}
+# A list of the four lists of randomly selected 15 items from 1:10 using replacement 
+
+toy_list <- map(1:4, ~ sample(x = 1:10, 
+                              size = 15, 
+                              replace = TRUE))
+
+# Let's find common elements across these four lists 
+out <- toy_list[[1]]
+out <- intersect(out, toy_list[[2]])
+out <- intersect(out, toy_list[[3]])
+out <- intersect(out, toy_list[[4]])
+out 
+
+# Using reduce 
+reduce(toy_list, intersect)
+
+```
+
+- The following real-world example comes from my [`tidytweetjson`](https://github.com/jaeyk/tidytweetjson/blob/master/R/jsonl_to_df_all.R) package.
+
+```{r}
 jsonl_to_df_all <- function(dir_path){
 
-# Create a list of the splitted JSON files
-
-      filename <- list.files(dir_path,
+      # Create a list of the splitted JSON files
+      
+      filename <- list.files(dir_path, # This is also a pretty neat technique for parsing PDF files stored in a particular directory.
                 pattern = '^x',
                 full.names = TRUE)
-
+      
       df <- filename %>%
-
-      # Apply jsonl_to_df function to items on the list
-      future_map(~jsonl_to_df(.)) %>%
-
-      # Full join the list of dataframes
-      reduce(full_join,
+      
+        # Apply jsonl_to_df function to items on the list
+      
+        future_map(~jsonl_to_df(.)) %>%
+      
+        # Full join the list of dataframes
+      
+        reduce(full_join,
              by = c("id",
                     "location",
                     "country_code",
@@ -176,17 +291,8 @@ jsonl_to_df_all <- function(dir_path){
                     "favorite_count",
                     "user.followers_count",
                     "user.friends_count"))
-
 # Output
 df
-
 }
+
 ```
-
-# References 
-
-- Webscraping: [Web Scraping and Data Management in R](https://github.com/rochelleterman/ESS-webscraping) by Rochelle Terman
-
-- PDF parsing: [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/) by Tom Mock
-
-- Functional programming: [Functional programming with {purrr}](https://b-rodrigues.github.io/modern_R/defining-your-own-functions.html#functional-programming-with-purrr) by [Bruno Rodrigues](https://www.brodrigues.co/)
