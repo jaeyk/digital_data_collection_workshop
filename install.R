@@ -1,7 +1,8 @@
 install.packages(c("pacman",
                    "tidyverse",
-              	   "testthat"
+              	   "testthat",
               	   "xml2",
               	   "rvest",
-              	   "tictoc"              	   
+              	   "tictoc",
+              	   "furrr"
               	   )) 

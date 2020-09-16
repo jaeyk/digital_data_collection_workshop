@@ -57,8 +57,9 @@ For instance, in many data science applications, linear algebra-based computatio
 # Workflow
   
 1. Import/connect to a semi-structured file using `rvest,` `jsonlite,` `xml2,` `pdftools,` `tidyjson`, etc. 
-
 - Google Scholar platform is notoriously difficult to scrape (for more information, please read [this *nature* column](https://www.nature.com/articles/d41586-018-04190-5) on scraping data from Google Scholar). 
+
+- Any attempt to scrape content from Google's service may cause you to be suspended from using it. So, I wrote this tutorial only for the educational purpose, please don't do it.
 
 ```{r}
 # Install packages 
@@ -67,7 +68,8 @@ pacman::p_load(xml2,
                rvest, 
                tidyverse, 
                testthat,
-               tictoc)
+               tictoc,
+               furrr)
 
 # Citation information of Behind the Mule (1994) written by Michael Dawson 
 document <- xml2::read_html("https://scholar.google.com/scholar?hl=en&as_sdt=2005&sciodt=0%2C5&cites=8941738289420139866&scipsc=")
@@ -118,61 +120,12 @@ url_list <- map(1:3, create_url)
 # 3 and more than 3 arguments - pmap()
 
 ```
-
-4. Write a parsing function 
-
-```{r}
-
-find_hit <- function(url){
-  
-  # Read html data 
-  doc <- read_html(curl::curl(url, handle = curl::new_handle("useragent" = "Mozilla/5.0"))) %>%
-    html_nodes("div.gs_ab_mdw") %>%
-    html_text()
-  
-  # Extract the text  
-  text <- doc[2]
-  
-  # Parse the text 
-  out <- readr::parse_number(text)
-  
-  # Unit testing 
-  test_that("The class of the output should be numeric", {
-  testthat::expect_equal(class(out), "numeric")
-  })
-  
-  out
-  
-}
-
-# testhat::expect_equal(class(2), "character")
-
-```
-
-
-> It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically. - Hadley Wickam 
-
-- When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
-
-5. Automate parsing process
-
-```{r}
-
-hits <- map_dbl(url_list, find_hit)
-
-hits
-
-```
-![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
-
-- Note that if you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
-
-- Let me reinforce the idea why `purrr:map()` is awesome. 
+- Why `purrr:map()` is awesome. 
 
 ![Figure 5. How map() works.](https://d33wubrfki0l68.cloudfront.net/f0494d020aa517ae7b1011cea4c4a9f21702df8b/2577b/diagrams/functionals/map.png)
   - Input: Takes a vector and a function 
   - Computation: Calls the function once for each element of the vector 
-  - Output: Returns in a list or whatever data format you prefer 
+  - Output: Returns in a list or whatever data format you prefer
   
 - Compare the following three examples. 
 
@@ -229,7 +182,97 @@ toc()
 
 ```
 
-6. In case, if you want to reduce the listed items you scraped ... 
+- In short, map() is more readable, faster, and easily extensive with other data science tasks using %>%. 
+
+- Also, it's easy to include make your function run slowly (to reduce the burden on a server) using `purrr`. 
+
+```{r}
+
+# 0.008 sec elapsed 
+tic()
+url_list <- map(1:3, create_url)
+toc()
+
+# 0.01 sec elapsed 
+tic()
+
+slowly(
+  url_list <- map(1:3, create_url), 
+  rate_delay(pause = 2))
+
+toc()
+
+```
+- If you want to make your function run faster, it's also easy to do that. For more information, please visit the `[furrr](https://davisvaughan.github.io/furrr/)` package website.
+
+```{r}
+
+# 4.672 sec elapsed 
+tic()
+mean100 <- map(1:1000000, mean)
+toc()
+
+# 3.666 sec elapsed 
+
+plan(multisession, workers = 2)
+
+tic()
+mena100 <- future_map(1:1000000, mean)
+toc()
+
+```
+
+4. Write a parsing function 
+
+```{r}
+
+find_hit <- function(url){
+  
+  # Read html data 
+  doc <- read_html(curl::curl(url, handle = curl::new_handle("useragent" = "Mozilla/5.0"))) %>%
+    html_nodes("div.gs_ab_mdw") %>%
+    html_text()
+  
+  # Extract the text  
+  text <- doc[2]
+  
+  # Parse the text 
+  out <- readr::parse_number(text)
+  
+  # Unit testing 
+  test_that("The class of the output should be numeric", {
+  testthat::expect_equal(class(out), "numeric")
+  })
+  
+  out
+  
+}
+
+# testhat::expect_equal(class(2), "character")
+
+```
+
+
+> It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically. - Hadley Wickam 
+
+- When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
+
+5. Automate parsing process
+
+```{r}
+
+slow_find_hit <- slowly(find_hit)
+  
+hits <- map_dbl(url_list, slow_find_hit)
+
+hits
+
+```
+![Figure 4. This is one way you can fully automate the data collection process and visualize the outcome.](https://github.com/jaeyk/validating-two-linked-fates/raw/master/outputs/cite.png)
+
+- Note that if you scrape too much information from the platform too quickly, you will be prohibited using it for a while.
+
+6. If you want to reduce the listed items you scraped ... 
 
 - Automatically scrapped thousands newspaper articles, parsed them, and now you want to put all of these elements on the list into a single dataframe. 
 
@@ -269,7 +312,7 @@ jsonl_to_df_all <- function(dir_path){
 
       # Create a list of the splitted JSON files
       
-      filename <- list.files(dir_path, # This is also a pretty neat technique for parsing PDF files stored in a particular directory.
+      filename <- list.files(dir_path, # Using list.files() is also a pretty neat technique for parsing PDF files stored in a particular directory.
                 pattern = '^x',
                 full.names = TRUE)
       
