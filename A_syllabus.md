@@ -63,7 +63,7 @@ The schedule is subject to change based on the class's rate of progress.
   - Style: Lecture
   - Lecture notes:
     - Interactive version: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jaeyk/digital_data_collection_workshop/master?urlpath=rstudio) 
-    - Non-interactive version: [Notebook](file:///home/jae/digital_data_collection_workshop/LectureNotes/01_introduction/01_automate_data_collection_workflow.html)
+    - Non-interactive version: [Notebook](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/80ffb016c95b1694bf2389f8aee2ae5f15d2b8b4/LectureNotes/01_introduction/01_automate_data_collection_workflow.html)
   - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to collect and wrangle data
   - R Packages: [dplyr](https://dplyr.tidyverse.org/), [purrr](https://purrr.tidyverse.org/)
   - References:
