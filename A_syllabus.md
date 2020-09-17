@@ -64,8 +64,8 @@ The schedule is subject to change based on the class's rate of progress.
     - Description: introduction to the tidyverse; discussion of efficient and reproducible ways to collect and wrangle data
     - R Packages: [dplyr](https://dplyr.tidyverse.org/), [purrr](https://purrr.tidyverse.org/)
     - References:
-    - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
-    - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
+        - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
+        - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
 
 ### Techniques in social media scraping
 
@@ -76,8 +76,8 @@ The schedule is subject to change based on the class's rate of progress.
     - Command-line tool: [twarc](https://github.com/DocNow/twarc)
     - R packages: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson), rtweet
     - References:
-    - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
-    - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
+        - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
+        - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
 - September 30, 2020: Tweet parsing workshop
     - Instructor: Kim + Kuipers
@@ -92,7 +92,7 @@ The schedule is subject to change based on the class's rate of progress.
     - Description: introduction to techniques of pdf-scraping; where to look for documents; how to know what to pre-process by hand; identifying recurring patterns in text to exploit for data wrangling; parallel processing
     - R Packages: tesseract, magick, zoo, parallel, pdftools
     - References:
-    - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
+        - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
 
 - October 14, 2020: No workshop -- Indigenous peoples’ day
 
@@ -110,7 +110,7 @@ The schedule is subject to change based on the class's rate of progress.
     - R Packages: rvest, jsonlite, zoo, xml, [ralger](https://github.com/feddelegrand7/ralger)
     - Chrome plugin: SelectorGadget
     - References:
-      - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
+        - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
 
 - November 4, 2020: Web-scraping workshop
     - Instructor: Kuipers + Kim
