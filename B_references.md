@@ -9,5 +9,6 @@
 - [PS239T: Introduction to Computational Tools and Techniques](https://github.com/jaeyk/PS239T) by Jae Yeon Kim
 
 ## Books 
+- [Twitter as Data](https://www.cambridge.org/core/elements/twitter-as-data/27B3DE20C22E12E162BFB173C5EB2592) by Zachary C. Steinert-Threlkeld
 - [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham
 - [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by [Bruno Rodrigues](https://www.brodrigues.co/)
