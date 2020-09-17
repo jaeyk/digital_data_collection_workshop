@@ -1,0 +1,14 @@
+---
+title: "Dehydration"
+author: "Jae Yeon Kim"
+output:
+  html_document:
+    df_print: paged
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+# Objectives 
