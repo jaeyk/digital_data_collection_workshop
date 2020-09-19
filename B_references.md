@@ -7,7 +7,6 @@
 - [STAT545 Data wrangling, exploration, and analysis with R](https://stat545.com/) by Jenny Bryan and the STAT 545 TAs
 - [Collecting and Analyzing Social Media Data with R](http://pablobarbera.com/social-media-workshop/) by Pablo Barbera 
 - [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia) by Zachary C. Steinert-Threlkeld
-- [PS239T: Introduction to Computational Tools and Techniques](https://github.com/jaeyk/PS239T) by Jae Yeon Kim
 
 ## Books 
 - [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham
