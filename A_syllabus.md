@@ -74,9 +74,8 @@ The schedule is subject to change based on the class's rate of progress.
     - Style: Lecture
     - Description: Introduction to techniques of collecting and parsing social media data with emphasis on Twitter
     - Requirement: Please sign up a [Twitter developer account](https://developer.twitter.com/en/apply-for-access) at least 2-3 days prior to the session.
-    - Command-line tool
-        - Dehydration: [twarc](https://github.com/DocNow/twarc)
-            - [Installation guideline](https://scholarslab.github.io/learn-twarc/05-install-twarc.html) 
+    - Command-line tool: [twarc](https://github.com/DocNow/twarc)
+        - [Installation guideline](https://scholarslab.github.io/learn-twarc/05-install-twarc.html) 
     - R packages: 
         - RESTful API: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
         - Streaming API: [streamR](https://github.com/pablobarbera/streamR)
