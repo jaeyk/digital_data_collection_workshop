@@ -66,7 +66,6 @@ The schedule is subject to change based on the class's rate of progress.
     - References:
         - Kim, How to Automate Repeated Things in R ([GitHub](https://github.com/dlab-berkeley/R-functional-programming))
         - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
-        - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
 
 ### Techniques in social media scraping
 
@@ -83,7 +82,7 @@ The schedule is subject to change based on the class's rate of progress.
         - Streaming API: [streamR](https://github.com/pablobarbera/streamR)
         - Parsing: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson)
     - References:
-        - [Benoit](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Kenneth-Benoit/Kenneth-Benoit) and [Tsvetkova](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Milena-Tsvetkova/Milena-Tsvetkova) [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf)
+        - [Benoit](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Kenneth-Benoit/Kenneth-Benoit) and [Tsvetkova](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Milena-Tsvetkova/Milena-Tsvetkova). [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf)
         - Steinert-Threlkeld, [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia)
         - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
         - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
