@@ -66,7 +66,6 @@ The schedule is subject to change based on the class's rate of progress.
     - References:
         - Kim, How to Automate Repeated Things in R ([GitHub](https://github.com/dlab-berkeley/R-functional-programming))
         - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
-        - Kim, Efficient and Reproducible Project Management in R ([GitHub](https://github.com/dlab-berkeley/efficient-reproducible-project-management-in-R))
 
 ### Techniques in social media scraping
 
@@ -75,10 +74,16 @@ The schedule is subject to change based on the class's rate of progress.
     - Style: Lecture
     - Description: Introduction to techniques of collecting and parsing social media data with emphasis on Twitter
     - Requirement: Please sign up a [Twitter developer account](https://developer.twitter.com/en/apply-for-access) at least 2-3 days prior to the session.
-    - Command-line tool: [twarc](https://github.com/DocNow/twarc)
-        - [Installation guideline](https://scholarslab.github.io/learn-twarc/05-install-twarc.html) 
-    - R packages: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson), [rtweet](https://github.com/ropensci/rtweet)
+    - Command-line tool
+        - Dehydration: [twarc](https://github.com/DocNow/twarc)
+            - [Installation guideline](https://scholarslab.github.io/learn-twarc/05-install-twarc.html) 
+    - R packages: 
+        - RESTful API: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
+        - Streaming API: [streamR](https://github.com/pablobarbera/streamR)
+        - Parsing: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson)
     - References:
+        - [Benoit](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Kenneth-Benoit/Kenneth-Benoit) and [Tsvetkova](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Milena-Tsvetkova/Milena-Tsvetkova). [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf)
+        - Steinert-Threlkeld, [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia)
         - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
         - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
