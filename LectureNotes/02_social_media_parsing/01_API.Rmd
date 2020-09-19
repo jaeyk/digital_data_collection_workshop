@@ -13,9 +13,9 @@ output:
 
 # Objectives 
 
-- Learning how to scrape social media data using [application programming interface](https://en.wikipedia.org/wiki/API#:~:text=An%20application%20programming%20interface%20(API,the%20conventions%20to%20follow%2C%20etc.) (API)
+- Learning what kind of social media data are accessible through application programming interfaces (APIs)
 
-**Challenge 1**
+**Review question**
 
 In the last session, we learned the difference between semi-structured data and structured data. Can anyone tell us the difference between them?
 
@@ -28,8 +28,10 @@ In the last session, we learned the difference between semi-structured data and 
 3. Process: 
 
     - Getting **target data** from a remote server 
+        - The target data is usually huge (>10GB) by the traditional social science standard.
   
-    - Parsing this data on your local machine 
+    - Parsing a sampled subset of this data on your local machine 
+        - This sample-model strategy is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/).
   
 - But what exactly is this target data?
 
@@ -41,9 +43,9 @@ In the last session, we learned the difference between semi-structured data and 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Automatisches_Kleinteilelager.jpg)
 
-# Social media data 
+# Opportunities and challenges for parsing social media data 
 
-This explanation draws on Benoit's and Tsvetkova's [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf).
+This explanation draws on Pablo Barbara's [social media workshop slides](http://pablobarbera.com/social-media-workshop/social-media-slides.pdf).
 
 **Upside**
 
@@ -53,7 +55,7 @@ Web scraping (Wild Wild West) <> API (Big Gated Garden)
 
 - What is an API?: An interface (you can think of it as something akin to restaurant menu.)
     - [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
-        - R packages: tweetscores, twitteR, rtweet
+        - R packages: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
     - [Streaming API](https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.): dynamic information (e..g, new tweets) Strong industry interest in this type of API.
        - This streaming data is filtered by (1) keywords, (2) location, and (3) sample (1% of the total tweets)
        - R packages: [streamR](https://github.com/pablobarbera/streamR)
@@ -76,5 +78,7 @@ Web scraping (Wild Wild West) <> API (Big Gated Garden)
     
     - [YouTube API](https://developers.google.com/youtube/v3) access is somewhat limited (but you need to check as I'm not updated on this).
 
-# How to access Twitter API?
+# Next steps
 
+- If you want to know how to sign up a new Twitter developer account and access Twitter API, then see Steinert-Threlkeld's [APSA workshop slides](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia/blob/master/Presentation/02_AccessTwitter.pdf). 
+- If you want to know about how to use `tweetscore` package, then see Pablo Barbara's R markdown file for [scraping data from Twitter's BEST API](http://pablobarbera.com/social-media-workshop/code/02-twitter-REST-data-collection.html) 
