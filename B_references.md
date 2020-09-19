@@ -11,4 +11,5 @@
 ## Books 
 - [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham
 - [Modern R with the tidyverse](https://b-rodrigues.github.io/modern_R/) by [Bruno Rodrigues](https://www.brodrigues.co/)
+- [Automated Digital Data Collection in R](http://oskicat.berkeley.edu/search~S1?/XAutomated+Data+Collection+with+R%3A+A+Practical+Guide+to+Web+Scraping+and+Text+Mining&searchscope=1&SORT=D/XAutomated+Data+Collection+with+R%3A+A+Practical+Guide+to+Web+Scraping+and+Text+Mining&searchscope=1&SORT=D&SUBKEY=Automated+Data+Collection+with+R%3A+A+Practical+Guide+to+Web+Scraping+and+Text+Mining/1%2C2%2C2%2CB/frameset&FF=XAutomated+Data+Collection+with+R%3A+A+Practical+Guide+to+Web+Scraping+and+Text+Mining&searchscope=1&SORT=D&1%2C1%2C) by Simon Munzert et al
 - [Twitter as Data](https://www.cambridge.org/core/elements/twitter-as-data/27B3DE20C22E12E162BFB173C5EB2592) by Zachary C. Steinert-Threlkeld
