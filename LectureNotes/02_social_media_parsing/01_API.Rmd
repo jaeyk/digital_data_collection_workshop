@@ -1,5 +1,5 @@
 ---
-title: "API"
+title: "Social media API"
 author: "Jae Yeon Kim"
 output:
   html_document:
@@ -30,53 +30,59 @@ In the last session, we learned the difference between semi-structured data and 
     - Getting **target data** from a remote server 
         - The target data is usually huge (>10GB) by the traditional social science standard.
   
-    - Parsing a sampled subset of this data on your local machine 
-        - This sample-model strategy is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/).
-  
+    - Parsing (then doing modeling and visualizing) a sampled subset of this data on your local machine 
+        - To be precise, this sample-model strategy is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/).
+
+![](https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/sample_model.png)
+
 - But what exactly is this target data?
 
-    - Although HTML (defines a structure of a website), CSS (its style), and JavaScript (its dynamic interactions) are more visible, most web data are stored in either XML or JSON (major formats for storing and transporting data; they are light and flexible).
+    - When you do web scraping, you mostly deal with HTML (defines a structure of a website), CSS (its style), and JavaScript (its dynamic interactions).
     
-    - If HTML, CSS, and JavaScript are storefronts, then XML and JSON are warehouses. 
+    - When you deal with API, you mostly deal with either XML or JSON (major formats for storing and transporting data; they are light and flexible).
     
      - XML and JSON have tree-like (nested; a root and branches) structures and keys and values (or elements and attributes).
+     
+     - If HTML, CSS, and JavaScript are storefronts, then XML and JSON are warehouses. 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Automatisches_Kleinteilelager.jpg)
 
 # Opportunities and challenges for parsing social media data 
 
-This explanation draws on Pablo Barbara's [social media workshop slides](http://pablobarbera.com/social-media-workshop/social-media-slides.pdf).
+This explanation draws on Pablo Barbara's [LSE social media workshop slides](http://pablobarbera.com/social-media-workshop/social-media-slides.pdf).
 
-**Upside**
+**Basic information**
 
-- They have well-documented APIs.
-
-Web scraping (Wild Wild West) <> API (Big Gated Garden)
-
-- What is an API?: An interface (you can think of it as something akin to restaurant menu.)
+- What is an API?: An interface (you can think of it as something akin to restaurant menu. API parameters are menu items.)
     - [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
         - R packages: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
     - [Streaming API](https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.): dynamic information (e..g, new tweets) Strong industry interest in this type of API.
        - This streaming data is filtered by (1) keywords, (2) location, and (3) sample (1% of the total tweets)
        - R packages: [streamR](https://github.com/pablobarbera/streamR)
     
-- What does it mean? You have legal but limited access to (growing) big data that can be divided into text, image, and video and transformed into cross-sectional (geocodes), longitudinal (timestamps), and event historical data (hashtags). For more information, see Zachary C. Steinert-Threlkeld's [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia).
+**Status**
 
-- It's also well-organized, managed, and curated data. XML and JSON have keys and values. That means keys organize observations. 
+- Twitter API is still widely accessible ([v2](https://developer.twitter.com/en/docs/twitter-api/early-access) recently released). 
+    
+- Facebook API access has become much constrained with [the exception of Social Science One](https://socialscience.one/blog/unprecedented-facebook-urls-dataset-now-available-research-through-social-science-one) since the 2016 U.S. election.
+    
+- [YouTube API](https://developers.google.com/youtube/v3) access is somewhat limited (but you need to check as I'm not updated on this).
+    
+**Upside**
+
+- Legal and well-documented. 
+
+Web scraping (Wild Wild West) <> API (Big Gated Garden)
+
+- You have legal but limited access to (growing) big data that can be divided into text, image, and video and transformed into cross-sectional (geocodes), longitudinal (timestamps), and event historical data (hashtags). For more information, see Zachary C. Steinert-Threlkeld's [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia).
+
+- Social media data are also well-organized, managed, and curated data. It's easy to navigate because XML and JSON have keys and values. If you find keys, you will find observations you look for.
 
 **Downside**
 
 1. Rate-limited.
 
-2. You need to pay for premium access.
-
-3. Access varies by APIs: 
-
-    - Twitter API is still widely accessible ([v2](https://developer.twitter.com/en/docs/twitter-api/early-access) recently released). 
-    
-    - Facebook API access has become much constrained with [the exception of Social Science One](https://socialscience.one/blog/unprecedented-facebook-urls-dataset-now-available-research-through-social-science-one) since the 2016 U.S. election.
-    
-    - [YouTube API](https://developers.google.com/youtube/v3) access is somewhat limited (but you need to check as I'm not updated on this).
+2. If you want to access to more and various data than those available, you need to pay for premium access.
 
 # Next steps
 

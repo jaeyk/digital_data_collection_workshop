@@ -1,5 +1,5 @@
 ---
-title: "Dehydration"
+title: "Hydration"
 author: "Jae Yeon Kim"
 output:
   html_document:

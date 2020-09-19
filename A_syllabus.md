@@ -73,7 +73,6 @@ The schedule is subject to change based on the class's rate of progress.
     - Lead Instructor: Kim
     - Style: Lecture
     - Description: Introduction to techniques of collecting and parsing social media data with emphasis on Twitter
-    - Requirement: Please sign up a [Twitter developer account](https://developer.twitter.com/en/apply-for-access) at least 2-3 days prior to the session.
     - Command-line tool: [twarc](https://github.com/DocNow/twarc)
         - [Installation guideline](https://scholarslab.github.io/learn-twarc/05-install-twarc.html) 
     - R packages: 
@@ -81,7 +80,7 @@ The schedule is subject to change based on the class's rate of progress.
         - Streaming API: [streamR](https://github.com/pablobarbera/streamR)
         - Parsing: [tidyjson](https://cran.r-project.org/web/packages/tidyjson/vignettes/introduction-to-tidyjson.html), [tidytweetjson](https://github.com/jaeyk/tidytweetjson)
     - References:
-        - [Benoit](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Kenneth-Benoit/Kenneth-Benoit) and [Tsvetkova](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Milena-Tsvetkova/Milena-Tsvetkova). [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf)
+        - [Pablo Barbara](https://github.com/pablobarbera), [LSE Social Media Workshop](http://pablobarbera.com/social-media-workshop/social-media-slides.pdf)
         - Steinert-Threlkeld, [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia)
         - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
