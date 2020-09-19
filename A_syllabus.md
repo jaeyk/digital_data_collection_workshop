@@ -83,7 +83,6 @@ The schedule is subject to change based on the class's rate of progress.
     - References:
         - [Benoit](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Kenneth-Benoit/Kenneth-Benoit) and [Tsvetkova](https://www.lse.ac.uk/Methodology/People/Academic-Staff/Milena-Tsvetkova/Milena-Tsvetkova). [LSE MY472 Data for Data Scientists](https://lse-my472.github.io/week10/MY472-week10.pdf)
         - Steinert-Threlkeld, [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia)
-        - Kim, SQL for R Users ([GitHub](https://github.com/dlab-berkeley/sql-for-r-users))
         - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
 - September 30, 2020: Tweet parsing workshop
