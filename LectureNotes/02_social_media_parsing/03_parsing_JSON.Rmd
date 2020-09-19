@@ -11,4 +11,138 @@ output:
     toc: yes
 ---
 
+# Setup 
+
+```{r}
+# Install packages 
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, # tidyverse pkgs including purrr
+               furrr) # parallel processing 
+
+## Install the current development version from GitHub
+devtools::install_github("jaeyk/tidytweetjson",
+                         dependencies = TRUE)
+```
+
 # Objectives 
+
+- Learning chunk and pull strategy 
+- Learning how `tidyjson` works 
+- Learning how to apply `tidyjson` to tweets 
+
+# Chunk and Pull 
+
+![](https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/chunk_pull.png)
+
+# tidyjson
+
+# Application 
+
+- The following example draws on my [tidytweetjson](https://github.com/jaeyk/tidytweetjson) R package. 
+
+## Individual file 
+
+```{r}
+
+jsonl_to_df <- function(file_path){
+
+# Save file name 
+
+file_name <- strsplit(x = file_path, 
+                     split = "[/]") 
+
+file_name <- file_name[[1]][length(file_name[[1]])]
+
+# Import a Tweet JSON file
+
+listed <- read_json(file_path, format = c("jsonl"))
+
+# IDs of the tweets with country codes
+
+ccodes <- listed %>%
+  enter_object("place") %>%
+  enter_object("country_code") %>%
+  append_values_string() %>%
+  as_tibble() %>%
+  rename("country_code" = "string")
+
+# IDs of the tweets with location
+
+locations <- listed %>%
+  enter_object("user") %>%
+  enter_object("location") %>%
+  append_values_string() %>%
+  as_tibble() %>%
+  rename(location = "string")
+
+# Extract other key elements from the JSON file
+
+df <- listed %>%
+  spread_values(
+    id = jnumber("id"),
+    created_at = jstring("created_at"),
+    full_text = jstring("full_text"),
+    retweet_count = jnumber("retweet_count"),
+    favorite_count = jnumber("favorite_count"),
+    user.followers_count = jnumber("user.followers_count"),
+    user.friends_count = jnumber("user.friends_count")
+  ) %>%
+  as_tibble()
+
+message(paste("Parsing", file_name, "done."))
+
+# Full join
+outcome <- full_join(ccodes, df) %>% full_join(locations)
+
+# Select
+outcome %>% select(-c("document.id"))}
+
+```
+
+## Many files 
+
+- Set up parallel processing. 
+
+```{r}
+
+n_cores <- availableCores() - 1
+
+n_cores # This number depends on your computer spec.
+
+plan(multiprocess, # multicore, if supported, otherwise multisession
+     workers = n_cores) # the maximum number of workers
+
+```
+
+- Parsing in parallel. 
+
+```{r, eval = FALSE}
+
+# Create a list of file paths 
+filename <- list.files(dir_path,
+          pattern = '^x',
+          full.names = TRUE)
+
+
+df <- filename %>%
+
+# Apply jsonl_to_df function to items on the list
+future_map(~jsonl_to_df(.)) %>%
+
+# Full join the list of dataframes
+reduce(full_join,
+       by = c("id",
+              "location",
+              "country_code",
+              "created_at",
+              "full_text",
+              "retweet_count",
+              "favorite_count",
+              "user.followers_count",
+              "user.friends_count"))
+
+# Output
+df
+```
+
+
