@@ -13,8 +13,101 @@ output:
 
 # Objectives 
 
+- Learning how hydration and dehydration work 
+- Learning how to use [Twarc](https://github.com/DocNow/twarc) to communicate with Twitter's API
+
+**Review question**
+
+What are the main two types of Twitter API?
+
 # Hydration
 
 # Dehydration
 
-# Twarc: one solution to all API problems 
+# Twarc: one solution to (almost) all Twitter's API problems 
+
+- Why Twarc?
+  
+  - A command-line tool and Python library that works for almost every Twitter's API related problem. 
+  - It's really well-documented, tested, and maintained. 
+     - [Twarc documentation](https://scholarslab.github.io/learn-twarc/06-twarc-command-basics) covers basic commands. 
+     - [Tward-cloud documentation](https://twarc-cloud.readthedocs.io/_/downloads/en/stable/pdf/) explains how to collect data from Twitter's API using Twarc running in [Amazon Web Services](https://aws.amazon.com/) (AWS).
+  - Twarc was developed as part of the [Documenting the Now](https://www.docnow.io/) project which was funded by the Mellon Foundation.
+  
+![One ring that rules them all.](https://vignette.wikia.nocookie.net/lotr/images/8/8b/DOiAi2WUEAE3A1Y.0.jpg/revision/latest/scale-to-width-down/699?cb=20200305221819)
+  
+- There's no reason to be afraid of using a command-line tool and Python library, even though you primarily use R. It's easy to embed [Python code](https://bookdown.org/yihui/rmarkdown/language-engines.html#python) and [shell scripts](https://bookdown.org/yihui/rmarkdown/language-engines.html#shell-scripts) in R Markdown.
+
+- Even though you don't know how to write Python code or shell scripts, it's really useful to know how to integrate them in your R workflow.
+
+- I assume that you have already installed [Python 3](https://www.python.org/download/releases/3.0/).
+
+```{bash eval = FALSE}
+pip3 install twarc
+```
+
+## Applications 
+
+The following examples are created by [the University of Virginia library](http://digitalcollecting.lib.virginia.edu/toolkit/docs/social-media/twarc-commands/).
+
+### Search 
+
+- Download pre-existing tweets (7-day window) matching certain conditions
+
+- In command-line, `>` = Create a file 
+
+```{bash eval=FALSE}
+# Key word 
+twarc search blacklivesmatter > blm_tweets.jsonl
+```
+
+```{bash eval=FALSE}
+# Hashtag 
+twarc search '#blacklivesmatter' > blm_tweets_hash.jsonl
+```
+
+```{bash eval=FALSE}
+# Hashtag + Language 
+twarc search '#blacklivesmatter' --lang en > blm_tweets_hash.jsonl
+```
+
+### Filter 
+
+- Download tweets meeting certain conditions as they happen. 
+
+```{bash eval=FALSE}
+# Key word
+twarc filter blacklivesmatter > blm_tweets.jsonl
+```
+
+### Sample 
+
+- Use Twitter's random sample of recent tweets. 
+
+```{bash eval=FALSE}
+twarc sample > tweets.jsonl 
+```
+
+### Hydrate 
+
+- Tweet IDs -> Tweets 
+
+```{bash eval=FALSE}
+twarc hydrate tweet_ids.txt > tweets.jsonl 
+```
+
+### Dehydrate 
+
+- Tweets -> Tweet IDs
+
+```{bash eval=FALSE}
+twarc dehydrate tweets.jsonl > tweet_ids.txt
+```
+
+**Challenge**
+
+1. Collect tweets contain some key words of your choice using `twarc search` and save them as `tweets.jsonl`. 
+
+2. Using `less` command in the terminal, inspect `twarc.log`. 
+
+3. Using `less` command in the terminal, inspect `tweets.json`. 
