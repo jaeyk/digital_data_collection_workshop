@@ -2805,7 +2805,7 @@ div.tocify {
 <li>Learning what kind of social media data are accessible through application programming interfaces (APIs)</li>
 </ul>
 <p><strong>Review question</strong></p>
-<p>In the last session, we learned the difference between semi-structured data and structured data. Can anyone tell us the difference between them?</p>
+<p>In the previous session, we learned the difference between semi-structured data and structured data. Can anyone tell us the difference between them?</p>
 </div>
 <div id="the-big-picture-for-digital-data-collection" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> The big picture for digital data collection</h1>
@@ -2851,11 +2851,11 @@ div.tocify {
 <ul>
 <li>What is an API?: An interface (you can think of it as something akin to restaurant menu. API parameters are menu items.)
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
+<li><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
 <ul>
 <li>R packages: <a href="https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores">tweetscores</a>, <a href="https://cran.r-project.org/web/packages/twitteR/twitteR.pdf">twitteR</a>, <a href="https://github.com/ropensci/rtweet">rtweet</a></li>
 </ul></li>
-<li><a href="https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.">Streaming API</a>: dynamic information (e..g, new tweets) Strong industry interest in this type of API.
+<li><a href="https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.">Streaming API</a>: dynamic information (e..g, new tweets)
 <ul>
 <li>This streaming data is filtered by (1) keywords, (2) location, and (3) sample (1% of the total tweets)</li>
 <li>R packages: <a href="https://github.com/pablobarbera/streamR">streamR</a></li>
@@ -2864,7 +2864,13 @@ div.tocify {
 </ul>
 <p><strong>Status</strong></p>
 <ul>
-<li><p>Twitter API is still widely accessible (<a href="https://developer.twitter.com/en/docs/twitter-api/early-access">v2</a> recently released).</p></li>
+<li>Twitter API is still widely accessible (<a href="https://developer.twitter.com/en/docs/twitter-api/early-access">v2</a> recently released; new fields available such as <a href="https://developer.twitter.com/en/docs/twitter-api/conversation-id">conversation threads</a>).</li>
+</ul>
+<blockquote>
+<p>Twitter data is unique from data shared by most other social platforms because it reflects information that users <em>choose</em> to share publicly. Our API platform provides broad access to public Twitter data that users have chosen to share with the world. - Twitter Help Center</p>
+</blockquote>
+<pre><code>- What does this policy mean? If Twitter users don&#39;t share the locations of their tweets (e.g., GPS), you can&#39;t get collect them.</code></pre>
+<ul>
 <li><p>Facebook API access has become much constrained with <a href="https://socialscience.one/blog/unprecedented-facebook-urls-dataset-now-available-research-through-social-science-one">the exception of Social Science One</a> since the 2016 U.S. election.</p></li>
 <li><p><a href="https://developers.google.com/youtube/v3">YouTube API</a> access is somewhat limited (but you need to check as I’m not updated on this).</p></li>
 </ul>
@@ -2887,7 +2893,7 @@ div.tocify {
 <h1 number="4"><span class="header-section-number">4</span> Next steps</h1>
 <ul>
 <li>If you want to know how to sign up a new Twitter developer account and access Twitter API, then see Steinert-Threlkeld’s <a href="https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia/blob/master/Presentation/02_AccessTwitter.pdf">APSA workshop slides</a>.</li>
-<li>If you want to know about how to use <code>tweetscore</code> package, then see Pablo Barbara’s R markdown file for <a href="http://pablobarbera.com/social-media-workshop/code/02-twitter-REST-data-collection.html">scraping data from Twitter’s BEST API</a></li>
+<li>If you want to know about how to use <code>tweetscore</code> package, then see Pablo Barbara’s R markdown file for <a href="http://pablobarbera.com/social-media-workshop/code/02-twitter-REST-data-collection.html">scraping data from Twitter’s REST API</a></li>
 </ul>
 </div>
 
