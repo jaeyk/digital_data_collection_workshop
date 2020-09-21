@@ -44,7 +44,7 @@ In the previous session, we learned the difference between semi-structured data 
 
     - When you scrape websites, you mostly deal with HTML (defines a structure of a website), CSS (its style), and JavaScript (its dynamic interactions).
     
-    - When you access social media data through API, you deal with either XML or mostly JSON (major formats for storing and transporting data; they are light and flexible).
+    - When you access social media data through API, you deal with either XML or JSON (major formats for storing and transporting data; they are light and flexible).
     
      - XML and JSON have tree-like (nested; a root and branches) structures and keys and values (or elements and attributes).
      

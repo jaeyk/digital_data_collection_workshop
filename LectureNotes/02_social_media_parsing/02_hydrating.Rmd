@@ -1,5 +1,5 @@
 ---
-title: "Hydration"
+title: "Hydrating"
 author: "Jae Yeon Kim"
 output:
   html_document:
@@ -13,16 +13,21 @@ output:
 
 # Objectives 
 
-- Learning how hydration and dehydration work 
+- Learning how hydrating works 
 - Learning how to use [Twarc](https://github.com/DocNow/twarc) to communicate with Twitter's API
 
 **Review question**
 
-What are the main two types of Twitter API?
+What are the main two types of Twitter's API?
 
-# Hydration
+# Hydrating: An Alternative Way to Collect Historical Twitter Data
 
-# Dehydration
+- You can collect Twitter data using Twitter's API or you can hydrate Tweet IDs collected by other researchers. This is a good resource to collect historical Twitter data.
+
+- [Covid-19 Twitter chatter dataset for scientic use](http://www.panacealab.org/covid19/) by Panacealab 
+- [Women's March Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/5ZVMOR) by Littman and Park
+
+- Harvard Dataverse has a number of dehydrated Tweet IDs that could be of interest to social scientists. 
 
 # Twarc: one solution to (almost) all Twitter's API problems 
 
@@ -98,6 +103,7 @@ twarc hydrate tweet_ids.txt > tweets.jsonl
 
 ### Dehydrate 
 
+- Hydrate <> Dehydrate 
 - Tweets -> Tweet IDs
 
 ```{bash eval=FALSE}
