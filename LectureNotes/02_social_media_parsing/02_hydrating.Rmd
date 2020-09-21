@@ -61,6 +61,8 @@ The following examples are created by [the University of Virginia library](http:
 
 - In command-line, `>` = Create a file 
 
+- I recommend running the following commands in the terminal. 
+
 ```{bash eval=FALSE}
 # Key word 
 twarc search blacklivesmatter > blm_tweets.jsonl
