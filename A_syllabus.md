@@ -67,8 +67,8 @@ The schedule is subject to change based on the class's rate of progress.
         - Kim, How to Automate Repeated Things in R ([GitHub](https://github.com/dlab-berkeley/R-functional-programming))
         - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
 
-### Techniques in social media scraping
-
+### Techniques in social media scraping [[Notebook 1](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/01_API.html)] [[Notebook 2](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/02_hydrating.html)] [[Notebook 3](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/03_parsing_JSON.html)]
+ 
 - September 23, 2020: Introduction to tweet parsing
     - Lead Instructor: Kim
     - Style: Lecture
