@@ -71,8 +71,7 @@ For instance, in many data science applications, linear algebra-based computatio
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(xml2, 
                rvest, 
-               tidyverse, 
-               testthat,
+               tidyverse,
                tictoc,
                furrr)
 
@@ -257,22 +256,11 @@ find_hit <- function(url){
   # Parse the text 
   out <- readr::parse_number(text)
   
-  # Unit testing 
-  test_that("The class of the output should be numeric", {
-  testthat::expect_equal(class(out), "numeric")
-  })
-  
   out
   
 }
 
-# testhat::expect_equal(class(2), "character")
-
 ```
-
-> It’s not that we don’t test our code, it’s that we don’t store our tests so they can be re-run automatically. - Hadley Wickam 
-
-- When you write a function, including an automatic test is a really useful skill to reduce your time for debugging. As Wickam's quote emphasized, we actually test our code when we make changes, we just don't systematically isolate and automate them. `testthat` packages helps you to accomplish this objective easily and quickly. Also, as Karl Broman recommended, ["when you find a bug, write a test."](https://kbroman.org/pkg_primer/pages/tests.html)
 
 ## 5. Automate parsing process
 
