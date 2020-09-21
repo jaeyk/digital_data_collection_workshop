@@ -4,5 +4,7 @@ install.packages(c("pacman",
               	   "xml2",
               	   "rvest",
               	   "tictoc",
-              	   "furrr"
+              	   "furrr",
+                   "devtools",
+                   "tidyjson"
               	   )) 
