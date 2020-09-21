@@ -82,6 +82,8 @@ twarc search '#blacklivesmatter' > blm_tweets_hash.jsonl
 twarc search '#blacklivesmatter' --lang en > blm_tweets_hash.jsonl
 ```
 
+- It is really important to **save these tweets into a `jsonl` format;** `jsonl` extension refers to JSON **Lines** files. This structure is useful for splitting JSON data into smaller chunks, if it is too large.
+
 ### Filter 
 
 - Download tweets meeting certain conditions as they happen. 
