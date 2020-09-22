@@ -31,9 +31,9 @@ In the previous session, we learned the difference between semi-structured data 
         - The target data is usually huge (>10GB) by the traditional social science standard.
   
     - Parsing the target data your laptop/database 
-        - Laptop (sample-parse): Downsamle the large target data and parase it onr your laptop. This is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/). It's a simple strategy as it doesn't require to store your target data in your own database. 
+        - Laptop (sample-parse): Downsamle the large target data and parse it on your laptop. This is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/). It's a simple strategy as it doesn't require storing target data in your own database. 
 
-    - Database (push-parse): Push the large target datat to a database, then explore, select, and filter it. If you were interestd in using this option, then check out my [SQL for R Users](https://github.com/dlab-berkeley/sql-for-r-users) workshop.
+    - Database (push-parse): Push the large target data to a database, then explore, select, and filter it. If you were interested in using this option, then check out my [SQL for R Users](https://github.com/dlab-berkeley/sql-for-r-users) workshop.
         
 
 ![Sample-Parse](https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/sample_model.png)
