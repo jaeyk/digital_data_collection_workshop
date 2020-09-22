@@ -73,7 +73,7 @@ The schedule is subject to change based on the class's rate of progress.
 
 ### Techniques in social media scraping [[Notebook 1](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/01_API.html)] [[Notebook 2](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/02_hydrating.html)] [[Notebook 3](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/03_parsing_JSON.html)]
  
-- September 23, 2020: Introduction to tweet parsing
+- September 30, 2020: Introduction to tweet parsing
     - Lead Instructor: Kim
     - Style: Lecture
     - Description: Introduction to techniques of collecting and parsing social media data with emphasis on Twitter
@@ -88,14 +88,16 @@ The schedule is subject to change based on the class's rate of progress.
         - Steinert-Threlkeld, [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia)
         - Kim, Large-scale Twitter Analysis on COVID-19 and Anti-Asian Climate ([GitHub](https://github.com/jaeyk/covid19antiasian))
 
-- September 30, 2020: Tweet parsing workshop
+- October 7, 2020: Tweet parsing workshop
     - Instructor: Kim + Kuipers
     - Style: Seminar
     - Description: Graduate students provide/receive feedback on tweet parsing data collection strategies
 
 ### Techniques in pdf-scraping
 
-- October 7, 2020: PDF-parsing
+- October 14, 2020: No workshop -- Indigenous peoples’ day
+
+- October 21, 2020: PDF-parsing
     - Lead instructor: Kuipers
     - Style: Lecture
     - Description: introduction to techniques of pdf-scraping; where to look for documents; how to know what to pre-process by hand; identifying recurring patterns in text to exploit for data wrangling; parallel processing
@@ -103,16 +105,14 @@ The schedule is subject to change based on the class's rate of progress.
     - References:
         - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
 
-- October 14, 2020: No workshop -- Indigenous peoples’ day
-
-- October 21, 2020: PDF-parsing workshop
+- October 28, 2020: PDF-parsing workshop
     - Instructor: Kuipers + Kim
     - Style: Seminar
     - Description: Graduate students provide/receive feedback on PDF-parsing data collection strategies
 
 ### Techniques in web-scraping
 
-- October 28, 2020: Web-scraping
+- November 4, 2020: Web-scraping
     - Instructor: Kuipers
     - Style: Lecture
     - Description: introduction to techniques of web-scraping; identifying and exploiting underlying database structures; knowing when to quit
@@ -121,7 +121,7 @@ The schedule is subject to change based on the class's rate of progress.
     - References:
         - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
 
-- November 4, 2020: Web-scraping workshop
+- November 11, 2020: Web-scraping workshop
     - Instructor: Kuipers + Kim
     - Style: Seminar
     - Description: Graduate students provide/receive feedback on web-scraping data collection strategies
