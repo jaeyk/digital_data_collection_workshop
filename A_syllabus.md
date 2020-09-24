@@ -104,7 +104,7 @@ The schedule is subject to change based on the class's rate of progress.
     - R Packages: tesseract, magick, zoo, parallel, pdftools
     - References:
         - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
-        - Vaughan, [https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
+        - Vaughan, [Tidying Excel cash flow spreadsheets using R](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
 
 - October 28, 2020: PDF-parsing workshop
     - Instructor: Kuipers + Kim
