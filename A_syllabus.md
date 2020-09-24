@@ -104,6 +104,7 @@ The schedule is subject to change based on the class's rate of progress.
     - R Packages: tesseract, magick, zoo, parallel, pdftools
     - References:
         - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
+        - Vaughan, [https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
 
 - October 28, 2020: PDF-parsing workshop
     - Instructor: Kuipers + Kim
@@ -120,6 +121,7 @@ The schedule is subject to change based on the class's rate of progress.
     - Chrome plugin: SelectorGadget
     - References:
         - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
+        - Vaughan, [Which RStudio blog posts “pleased” Hadley? A tidytext + web scraping analysis](https://blog.davisvaughan.com/2017/08/16/hadley-pleased/)
 
 - November 11, 2020: Web-scraping workshop
     - Instructor: Kuipers + Kim
