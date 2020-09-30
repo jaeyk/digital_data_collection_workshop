@@ -71,7 +71,7 @@ The schedule is subject to change based on the class's rate of progress.
         - Kim, How to Automate Repeated Things in R ([GitHub](https://github.com/dlab-berkeley/R-functional-programming))
         - Kim, Advanced Wrangling Workshop in R ([GitHub](https://github.com/dlab-berkeley/advanced-data-wrangling-in-R))
 
-### Techniques in social media scraping [[Notebook 1](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/dbbc70a464b752eb5d7bec0f1aeba3d02c01f452/LectureNotes/02_social_media_parsing/01_API.html)] [[Notebook 2](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/02_hydrating.html)] [[Notebook 3](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/03_parsing_JSON.html)]
+### Techniques in social media scraping [[Notebook 1](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/dbbc70a464b752eb5d7bec0f1aeba3d02c01f452/LectureNotes/02_social_media_parsing/01_API.html)] [[Notebook 2](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/02_hydrating.html)] [[Notebook 3](https://rawcdn.githack.com/jaeyk/digital_data_collection_workshop/1d70f6215f9d68b75db45110546c29fc8f08c20e/LectureNotes/02_social_media_parsing/03_parsing_JSON.html)] [[Online book chapter]](https://jaeyk.github.io/PS239T/semi-structured-data.html#xmljson-social-media-scraping)
  
 - September 30, 2020: Introduction to tweet parsing
     - Lead Instructor: Kim
@@ -104,6 +104,7 @@ The schedule is subject to change based on the class's rate of progress.
     - R Packages: tesseract, magick, zoo, parallel, pdftools
     - References:
         - Mock, [Bear and pdftools](https://themockup.blog/posts/2020-04-03-beer-and-pdftools-a-vignette/)
+        - Vaughan, [Tidying Excel cash flow spreadsheets using R](https://blog.davisvaughan.com/2018/02/16/tidying-excel-cash-flow-spreadsheets-in-r/)
 
 - October 28, 2020: PDF-parsing workshop
     - Instructor: Kuipers + Kim
@@ -120,6 +121,7 @@ The schedule is subject to change based on the class's rate of progress.
     - Chrome plugin: SelectorGadget
     - References:
         - Terman, 3I: Web Scraping and Data Management in R ([GitHub](https://github.com/rochelleterman/ESS-webscraping))
+        - Vaughan, [Which RStudio blog posts “pleased” Hadley? A tidytext + web scraping analysis](https://blog.davisvaughan.com/2017/08/16/hadley-pleased/)
 
 - November 11, 2020: Web-scraping workshop
     - Instructor: Kuipers + Kim
