@@ -11,7 +11,7 @@ output:
     toc: yes
 ---
 
-# Objectives 
+# Objectives
 
 - Learning what kind of social media data are accessible through application programming interfaces (APIs)
 
@@ -19,81 +19,87 @@ output:
 
 In the previous session, we learned the difference between semi-structured data and structured data. Can anyone tell us the difference between them?
 
-# The big picture for digital data collection 
+# The big picture for digital data collection
 
-1. Input: semi-structured data 
+1.  Input: semi-structured data
 
-2. Output: structured data 
+2.  Output: structured data
 
-3. Process: 
+3.  Process:
 
-    - Getting **target data** from a remote server 
-        - The target data is usually huge (>10GB) by the traditional social science standard.
-  
-    - Parsing the target data your laptop/database 
-        - Laptop (sample-parse): Downsamle the large target data and parse it on your laptop. This is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/). It's a simple strategy as it doesn't require storing target data in your own database. 
+    -   Getting **target data** from a remote server
 
-    - Database (push-parse): Push the large target data to a database, then explore, select, and filter it. If you were interested in using this option, then check out my [SQL for R Users](https://github.com/dlab-berkeley/sql-for-r-users) workshop.
-        
+        -   The target data is usually huge (\>10GB) by the traditional social science standard.
+
+    -   Parsing the target data your laptop/database
+
+        -   Laptop (sample-parse): Downsamle the large target data and parse it on your laptop. This is just one option to [deal with big data in R](https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/). It's a simple strategy as it doesn't require storing target data in your own database.
+
+        -   Database (push-parse): Push the large target data to a database, then explore, select, and filter it. If you were interested in using this option, then check out my [SQL for R Users](https://github.com/dlab-berkeley/sql-for-r-users) workshop.
 
 ![Sample-Parse](https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/sample_model.png)
 
 ![Push-Parse](https://rviews.rstudio.com/post/2019-07-01-3-big-data-paradigms-for-r_files/push_data.png)
 
-- But what exactly is this target data?
+-   But what exactly is this target data?
 
-    - When you scrape websites, you mostly deal with HTML (defines a structure of a website), CSS (its style), and JavaScript (its dynamic interactions).
-    
-    - When you access social media data through API, you deal with either XML or JSON (major formats for storing and transporting data; they are light and flexible).
-    
-     - XML and JSON have tree-like (nested; a root and branches) structures and keys and values (or elements and attributes).
-     
-     - If HTML, CSS, and JavaScript are storefronts, then XML and JSON are warehouses. 
+    -   When you scrape websites, you mostly deal with HTML (defines a structure of a website), CSS (its style), and JavaScript (its dynamic interactions).
+
+    -   When you access social media data through API, you deal with either XML or JSON (major formats for storing and transporting data; they are light and flexible).
+
+    -   XML and JSON have tree-like (nested; a root and branches) structures and keys and values (or elements and attributes).
+
+    -   If HTML, CSS, and JavaScript are storefronts, then XML and JSON are warehouses.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/97/Automatisches_Kleinteilelager.jpg)
 
-# Opportunities and challenges for parsing social media data 
+# Opportunities and challenges for parsing social media data
 
 This explanation draws on Pablo Barbara's [LSE social media workshop slides](http://pablobarbera.com/social-media-workshop/social-media-slides.pdf).
 
 **Basic information**
 
-- What is an API?: An interface (you can think of it as something akin to restaurant menu. API parameters are menu items.)
-    - [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
-        - R packages: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
-    - [Streaming API](https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.): dynamic information (e..g, new tweets)
-       - This streaming data is filtered by (1) keywords, (2) location, and (3) sample (1% of the total tweets)
-       - R packages: [streamR](https://github.com/pablobarbera/streamR)
-    
+-   What is an API?: An interface (you can think of it as something akin to restaurant menu. API parameters are menu items.)
+
+    -   [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) (Representational state transfer) API: static information (e.g., user profiles, list of followers and friends)
+
+        -   R packages: [tweetscores](https://github.com/pablobarbera/twitter_ideology/tree/master/pkg/tweetscores), [twitteR](https://cran.r-project.org/web/packages/twitteR/twitteR.pdf), [rtweet](https://github.com/ropensci/rtweet)
+
+    -   [Streaming API](https://blog.axway.com/amplify/api-management/streaming-apis#:~:text=Streaming%20APIs%20are%20used%20to,a%20subset%20of%20Streaming%20APIS.): dynamic information (e..g, new tweets)
+
+        -   This streaming data is filtered by (1) keywords, (2) location, and (3) sample (1% of the total tweets)
+        -   R packages: [streamR](https://github.com/pablobarbera/streamR)
+
 **Status**
 
-- Twitter API is still widely accessible ([v2](https://developer.twitter.com/en/docs/twitter-api/early-access) recently released; new fields available such as [conversation threads](https://developer.twitter.com/en/docs/twitter-api/conversation-id)). 
-    
+-   Twitter API is still widely accessible ([v2](https://developer.twitter.com/en/docs/twitter-api/early-access) recently released; new fields available such as [conversation threads](https://developer.twitter.com/en/docs/twitter-api/conversation-id)).
+
 > Twitter data is unique from data shared by most other social platforms because it reflects information that users *choose* to share publicly. Our API platform provides broad access to public Twitter data that users have chosen to share with the world. - Twitter Help Center
 
     - What does this policy mean? If Twitter users don't share the locations of their tweets (e.g., GPS), you can't get collect them.
 
-- Facebook API access has become much constrained with [the exception of Social Science One](https://socialscience.one/blog/unprecedented-facebook-urls-dataset-now-available-research-through-social-science-one) since the 2016 U.S. election.
-    
-- [YouTube API](https://developers.google.com/youtube/v3) access is somewhat limited (but you need to check as I'm not updated on this).
-    
+-   Facebook API access has become much constrained with [the exception of Social Science One](https://socialscience.one/blog/unprecedented-facebook-urls-dataset-now-available-research-through-social-science-one) since the 2016 U.S. election.
+
+-   [YouTube API](https://developers.google.com/youtube/v3) access is somewhat limited (but you need to check as I'm not updated on this).
+
 **Upside**
 
-- Legal and well-documented. 
+-   Legal and well-documented.
 
-Web scraping (Wild Wild West) <> API (Big Gated Garden)
+Web scraping (Wild Wild West) \<\> API (Big Gated Garden)
 
-- You have legal but limited access to (growing) big data that can be divided into text, image, and video and transformed into cross-sectional (geocodes), longitudinal (timestamps), and event historical data (hashtags). For more information, see Zachary C. Steinert-Threlkeld's [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia).
+-   You have legal but limited access to (growing) big data that can be divided into text, image, and video and transformed into cross-sectional (geocodes), longitudinal (timestamps), and event historical data (hashtags). For more information, see Zachary C. Steinert-Threlkeld's [2020 APSA Short Course Generating Event Data From Social Media](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia).
 
-- Social media data are also well-organized, managed, and curated data. It's easy to navigate because XML and JSON have keys and values. If you find keys, you will find observations you look for.
+-   Social media data are also well-organized, managed, and curated data. It's easy to navigate because XML and JSON have keys and values. If you find keys, you will find observations you look for.
 
 **Downside**
 
-1. Rate-limited.
+1.  Rate-limited.
 
-2. If you want to access to more and various data than those available, you need to pay for premium access.
+2.  If you want to access to more and various data than those available, you need to pay for premium access.
 
 # Next steps
 
-- If you want to know how to sign up a new Twitter developer account and access Twitter API, then see Steinert-Threlkeld's [APSA workshop slides](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia/blob/master/Presentation/02_AccessTwitter.pdf). 
-- If you want to know about how to use `tweetscore` package, then see Pablo Barbara's R markdown file for [scraping data from Twitter's REST API](http://pablobarbera.com/social-media-workshop/code/02-twitter-REST-data-collection.html) 
+-   If you want to know how to sign up a new Twitter developer account and access Twitter API, then see Steinert-Threlkeld's [APSA workshop slides](https://github.com/ZacharyST/APSA2020_EventDataFromSocialMedia/blob/master/Presentation/02_AccessTwitter.pdf).
+
+-   If you want to know about how to use `tweetscore` package, then see Pablo Barbara's R markdown file for [scraping data from Twitter's REST API](http://pablobarbera.com/social-media-workshop/code/02-twitter-REST-data-collection.html)
